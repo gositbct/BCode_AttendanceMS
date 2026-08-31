@@ -275,7 +275,7 @@
                 HorizontalOptions="Fill">
 
                 <Label
-                    Text="My Barcode"
+                    Text="My Bar Code"
                     FontSize="16"
                     FontAttributes="Bold"
                     TextColor="White"
