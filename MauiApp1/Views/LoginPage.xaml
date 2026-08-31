@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.LoginPage"
+    Title="Login">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="-1,1" EndPoint="1,0">
+            <GradientStop Color="Blue"  Offset="1.5" />
+            <GradientStop Color="Black" Offset="0.5" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            x:Name="LoginCard"
+            Padding="{OnIdiom Phone=20, Tablet=40, Desktop=50}"
+            Spacing="{OnIdiom Phone=18, Tablet=22, Desktop=24}"
+            MaximumWidthRequest="500"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+            <!-- LOGO -->
+
+            <Border
+                WidthRequest="110"
+                HeightRequest="110"
+                StrokeThickness="0"
+                BackgroundColor="#E0F2FE"
+                StrokeShape="RoundRectangle 30"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="▣"
+                    FontSize="58"
+                    TextColor="#0284C7"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+            </Border>
+
+            <!-- TITLE -->
+
+            <VerticalStackLayout
+                Spacing="5"
+                HorizontalOptions="Fill">
+
+                <Label
+                    Text="No Scan, No Present"
+                    FontSize="{OnIdiom Phone=22, Tablet=26, Desktop=28}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center" />
+
+                <Label
+                    Text="Attendance Monitoring System"
+                    FontSize="14"
+                    TextColor="#777777"
+                    HorizontalTextAlignment="Center" />
+
+            </VerticalStackLayout>
+
+            <!-- LOGIN FORM -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="{OnIdiom Phone=18, Tablet=24, Desktop=28}"
+                HorizontalOptions="Fill">
+
+                <VerticalStackLayout Spacing="18">
+
+                    <!-- USERNAME -->
+
+                    <VerticalStackLayout Spacing="7">
+
+                        <Label
+                            Text="Username"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#333333" />
+
+                        <Border
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="10,0"
+                            HeightRequest="50">
+
+                            <Entry
+                                Placeholder="Enter your username"
+                                Text="{Binding Username}"
+                                FontSize="14"
+                                TextColor="#222222"
+                                PlaceholderColor="#999999"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                    <!-- PASSWORD -->
+
+                    <VerticalStackLayout Spacing="7">
+
+                        <Label
+                            Text="Password"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#333333" />
+
+                        <Border
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="8,0"
+                            HeightRequest="50">
+
+                            <Grid
+                                ColumnDefinitions="*,Auto"
+                                VerticalOptions="Center">
+
+                                <Entry
+                                    x:Name="PasswordEntry"
+                                    Grid.Column="0"
+                                    Placeholder="Enter your password"
+                                    IsPassword="True"
+                                    Text="{Binding Password}"
+                                    FontSize="14"
+                                    TextColor="#222222"
+                                    PlaceholderColor="#999999"
+                                    VerticalOptions="Center" />
+
+                                <Button
+                                    x:Name="ShowPasswordButton"
+                                    Grid.Column="1"
+                                    Text="Show"
+                                    FontSize="12"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#4F46E5"
+                                    WidthRequest="55"
+                                    HeightRequest="45"
+                                    Padding="0"
+                                    Clicked="ShowPassword_Clicked" />
+
+                            </Grid>
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                    <!-- LOGIN TYPE -->
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <Label
+                            Text="Login as"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#333333" />
+
+                        <Grid
+                            ColumnDefinitions="*,*"
+                            ColumnSpacing="10">
+
+                            <!-- STUDENT -->
+
+                            <Border
+                                x:Name="StudentBox"
+                                Grid.Column="0"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#D1D5DB"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="5">
+
+                                <RadioButton
+                                    Content="Student"
+                                    GroupName="LoginType"
+                                    IsChecked="{Binding IsStudent}"
+                                    TextColor="#333333"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <!-- ADMIN -->
+
+                            <Border
+                                x:Name="AdminBox"
+                                Grid.Column="1"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#D1D5DB"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="5">
+
+                                <RadioButton
+                                    Content="Admin"
+                                    GroupName="LoginType"
+                                    IsChecked="{Binding IsAdmin}"
+                                    TextColor="#333333"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- LOGIN BUTTON -->
+
+            <Button
+                Text="Log In"
+                HeightRequest="52"
+                CornerRadius="12"
+                BackgroundColor="#4F46E5"
+                TextColor="White"
+                FontSize="16"
+                FontAttributes="Bold"
+                Command="{Binding LoginCommand}"
+                HorizontalOptions="Fill" />
+
+            <!-- FOOTER -->
+
+            <Label
+                Text="@ NSNP Attendance Monitoring System"
+                FontSize="12"
+                TextColor="#999999"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

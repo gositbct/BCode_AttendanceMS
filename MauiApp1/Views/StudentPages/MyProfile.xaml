@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.StudentPages.MyProfile"
+    Title="My Profile">
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================================= -->
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="0,1"
+            EndPoint="1,0">
+
+            <GradientStop
+                Color="Blue"
+                Offset="1.0" />
+
+            <GradientStop
+                Color="Black"
+                Offset="0.0" />
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <!-- ========================================= -->
+    <!-- RESPONSIVE PAGE -->
+    <!-- ========================================= -->
+
+    <ScrollView
+        HorizontalScrollBarVisibility="Never"
+        VerticalScrollBarVisibility="Never">
+
+        <Grid
+            Padding="{OnIdiom Phone=15, Tablet=30, Desktop=40}"
+            HorizontalOptions="Center"
+            WidthRequest="{OnIdiom Phone=360, Tablet=600, Desktop=650}"
+            MaximumWidthRequest="650">
+
+            <VerticalStackLayout
+                Spacing="{OnIdiom Phone=15, Tablet=20, Desktop=22}"
+                HorizontalOptions="Fill">
+
+
+                <!-- ================================= -->
+                <!-- HEADER -->
+                <!-- ================================= -->
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="{OnIdiom Phone=16, Tablet=20, Desktop=22}"
+                    HorizontalOptions="Fill">
+
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="15"
+                        HeightRequest="{OnIdiom Phone=70, Tablet=78, Desktop=82}">
+
+                        <!-- ICON -->
+
+                        <Border
+                            Grid.Column="0"
+                            WidthRequest="{OnIdiom Phone=60, Tablet=68, Desktop=72}"
+                            HeightRequest="{OnIdiom Phone=60, Tablet=68, Desktop=72}"
+                            BackgroundColor="#E0F2FE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 22"
+                            VerticalOptions="Center">
+
+                            <Label
+                                Text="🎓"
+                                FontSize="{OnIdiom Phone=25, Tablet=29, Desktop=32}"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center" />
+
+                        </Border>
+
+
+                        <!-- TITLE -->
+
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Spacing="3"
+                            VerticalOptions="Center">
+
+                            <Label
+                                Text="My Profile"
+                                FontSize="{OnIdiom Phone=20, Tablet=23, Desktop=25}"
+                                FontAttributes="Bold"
+                                TextColor="#222222"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1" />
+
+                            <Label
+                                Text="View your account information"
+                                FontSize="{OnIdiom Phone=11, Tablet=13, Desktop=14}"
+                                TextColor="#777777"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1" />
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                </Border>
+
+
+                <!-- ================================= -->
+                <!-- PERSONAL INFORMATION -->
+                <!-- ================================= -->
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="{OnIdiom Phone=16, Tablet=22, Desktop=24}"
+                    HorizontalOptions="Fill">
+
+                    <VerticalStackLayout
+                        Spacing="14"
+                        HorizontalOptions="Fill">
+
+                        <VerticalStackLayout
+                            Spacing="3">
+
+                            <Label
+                                Text="Personal Information"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Label
+                                Text="Your registered student information"
+                                FontSize="12"
+                                TextColor="#888888" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- NAME -->
+
+                        <Border
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="62"
+                            HorizontalOptions="Fill">
+
+                            <Grid
+                                ColumnDefinitions="48,*"
+                                ColumnSpacing="12"
+                                Padding="10">
+
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    BackgroundColor="#E0F2FE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="👤"
+                                        FontSize="17"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Spacing="1">
+
+                                    <Label
+                                        Text="Full Name"
+                                        FontSize="11"
+                                        TextColor="#888888" />
+
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        TextColor="#222222"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1" />
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+
+                        <!-- ID -->
+
+                        <Border
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="62"
+                            HorizontalOptions="Fill">
+
+                            <Grid
+                                ColumnDefinitions="48,*"
+                                ColumnSpacing="12"
+                                Padding="10">
+
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    BackgroundColor="#EEF2FF"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="🪪"
+                                        FontSize="17"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Spacing="1">
+
+                                    <Label
+                                        Text="Student ID"
+                                        FontSize="11"
+                                        TextColor="#888888" />
+
+                                    <Label
+                                        Text="{Binding Id}"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        TextColor="#222222"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1" />
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+
+                        <!-- BLOCK -->
+
+                        <Border
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="62"
+                            HorizontalOptions="Fill">
+
+                            <Grid
+                                ColumnDefinitions="48,*"
+                                ColumnSpacing="12"
+                                Padding="10">
+
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    BackgroundColor="#F0FDF4"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="📚"
+                                        FontSize="17"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Spacing="1">
+
+                                    <Label
+                                        Text="Block / Section"
+                                        FontSize="11"
+                                        TextColor="#888888" />
+
+                                    <Label
+                                        Text="{Binding Block}"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        TextColor="#222222"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1" />
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- ================================= -->
+                <!-- BARCODE -->
+                <!-- ================================= -->
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="{OnIdiom Phone=16, Tablet=22, Desktop=24}"
+                    HorizontalOptions="Fill"
+                    IsVisible="{Binding HasBarcodeValue}">
+
+                    <VerticalStackLayout
+                        Spacing="10"
+                        HorizontalOptions="Fill">
+
+                        <VerticalStackLayout
+                            Spacing="2"
+                            HorizontalOptions="Center">
+
+                            <Label
+                                Text="My Barcode"
+                                FontSize="17"
+                                FontAttributes="Bold"
+                                TextColor="#333333"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label
+                                Text="Use this barcode for attendance scanning."
+                                FontSize="12"
+                                TextColor="#888888"
+                                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- FIXED RESPONSIVE BARCODE BOX -->
+
+                        <Border
+                            BackgroundColor="White"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="145"
+                            WidthRequest="{OnIdiom Phone=290, Tablet=340, Desktop=360}"
+                            MaximumWidthRequest="360"
+                            HorizontalOptions="Center"
+                            Padding="8">
+
+                            <Image
+                                x:Name="BarcodeImage"
+                                HeightRequest="120"
+                                WidthRequest="300"
+                                Aspect="AspectFit"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- ================================= -->
+                <!-- CHANGE PASSWORD -->
+                <!-- ================================= -->
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="{OnIdiom Phone=16, Tablet=22, Desktop=24}"
+                    HorizontalOptions="Fill">
+
+                    <VerticalStackLayout
+                        Spacing="14"
+                        HorizontalOptions="Fill">
+
+                        <VerticalStackLayout
+                            Spacing="3">
+
+                            <Label
+                                Text="Change Password"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Label
+                                Text="Update your account password."
+                                FontSize="12"
+                                TextColor="#888888" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- CURRENT PASSWORD -->
+
+                        <VerticalStackLayout
+                            Spacing="6">
+
+                            <Label
+                                Text="Current Password"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#D1D5DB"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                HeightRequest="50"
+                                Padding="10,0"
+                                HorizontalOptions="Fill">
+
+                                <Entry
+                                    Placeholder="Enter current password"
+                                    IsPassword="True"
+                                    Text="{Binding CurrentPassword}"
+                                    FontSize="14"
+                                    TextColor="#222222"
+                                    PlaceholderColor="#999999"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- NEW PASSWORD -->
+
+                        <VerticalStackLayout
+                            Spacing="6">
+
+                            <Label
+                                Text="New Password"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#D1D5DB"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                HeightRequest="50"
+                                Padding="10,0"
+                                HorizontalOptions="Fill">
+
+                                <Entry
+                                    Placeholder="Enter new password"
+                                    IsPassword="True"
+                                    Text="{Binding NewPassword}"
+                                    FontSize="14"
+                                    TextColor="#222222"
+                                    PlaceholderColor="#999999"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <VerticalStackLayout
+                            Spacing="6">
+
+                            <Label
+                                Text="Confirm New Password"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#D1D5DB"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 10"
+                                HeightRequest="50"
+                                Padding="10,0"
+                                HorizontalOptions="Fill">
+
+                                <Entry
+                                    Placeholder="Confirm new password"
+                                    IsPassword="True"
+                                    Text="{Binding ConfirmPassword}"
+                                    FontSize="14"
+                                    TextColor="#222222"
+                                    PlaceholderColor="#999999"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- SAVE -->
+
+                        <Button
+                            Text="Save New Password"
+                            HeightRequest="52"
+                            CornerRadius="12"
+                            BackgroundColor="#4F46E5"
+                            TextColor="White"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            Command="{Binding ChangePasswordCommand}"
+                            HorizontalOptions="Fill" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- ================================= -->
+                <!-- BACK -->
+                <!-- ================================= -->
+
+                <Button
+                    Text="← Back to Dashboard"
+                    HeightRequest="50"
+                    CornerRadius="12"
+                    BackgroundColor="White"
+                    BorderColor="#D1D5DB"
+                    BorderWidth="1"
+                    TextColor="#333333"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    Command="{Binding BackToDashboardNav}"
+                    HorizontalOptions="Fill" />
+
+
+                <!-- ================================= -->
+                <!-- FOOTER -->
+                <!-- ================================= -->
+
+                <Label
+                    Text="@ NSNP Attendance Monitoring System"
+                    FontSize="12"
+                    TextColor="#C7D7F5"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Fill"
+                    Margin="0,0,0,10" />
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>

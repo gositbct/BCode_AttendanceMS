@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+    x:Class="MauiApp1.Views.AdminPages.AdminScanner"
+    Title="Scanner">
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================================= -->
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="-1,1"
+            EndPoint="1,0">
+
+            <GradientStop
+                Color="Blue"
+                Offset="1.5" />
+
+            <GradientStop
+                Color="Black"
+                Offset="0.5" />
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================= -->
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="{OnIdiom Phone=20, Tablet=35, Desktop=45}"
+            Spacing="{OnIdiom Phone=18, Tablet=22, Desktop=25}"
+            MaximumWidthRequest="650"
+            HorizontalOptions="Center">
+
+
+            <!-- ========================================= -->
+            <!-- HEADER -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=18, Tablet=22, Desktop=25}">
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="15">
+
+                    <!-- NSNP LOGO -->
+
+                    <Border
+                        Grid.Column="0"
+                        WidthRequest="{OnIdiom Phone=65, Tablet=75, Desktop=80}"
+                        HeightRequest="{OnIdiom Phone=65, Tablet=75, Desktop=80}"
+                        StrokeThickness="0"
+                        BackgroundColor="#E0F2FE"
+                        StrokeShape="RoundRectangle 24"
+                        HorizontalOptions="Center">
+
+                        <Label
+                            Text="▣"
+                            FontSize="{OnIdiom Phone=42, Tablet=50, Desktop=55}"
+                            TextColor="#0284C7"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Border>
+
+
+                    <!-- TITLE -->
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="3"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="Scan Attendance"
+                            FontSize="{OnIdiom Phone=21, Tablet=23, Desktop=25}"
+                            FontAttributes="Bold"
+                            TextColor="#222222" />
+
+                        <Label
+                            Text="Scan a student's QR code to record attendance"
+                            FontSize="{OnIdiom Phone=12, Tablet=13, Desktop=14}"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- SCANNER CARD -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=15, Tablet=20, Desktop=24}">
+
+                <VerticalStackLayout
+                    Spacing="15">
+
+
+                    <!-- SECTION TITLE -->
+
+                    <VerticalStackLayout
+                        Spacing="3">
+
+                        <Label
+                            Text="QR Code Scanner"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#333333" />
+
+                        <Label
+                            Text="Position the student's QR code inside the scanner."
+                            FontSize="12"
+                            TextColor="#888888"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+
+                    <!-- ================================= -->
+                    <!-- CAMERA -->
+                    <!-- ================================= -->
+
+                    <Border
+                        BackgroundColor="Black"
+                        Stroke="#0284C7"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 16"
+                        HeightRequest="{OnIdiom Phone=300, Tablet=350, Desktop=380}"
+                        HorizontalOptions="Fill"
+                        Padding="0">
+
+                        <zxing:CameraBarcodeReaderView
+                            x:Name="cameraBarcodeReaderView"
+                            IsDetecting="True"
+                            BarcodesDetected="OnBarcodeDetected" />
+
+                    </Border>
+
+
+                    <!-- SCANNING STATUS -->
+
+                    <Border
+                        BackgroundColor="#F0F9FF"
+                        Stroke="#BAE6FD"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="12">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="10">
+
+                            <Label
+                                Grid.Column="0"
+                                Text="●"
+                                FontSize="16"
+                                TextColor="#0284C7"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                Text="Scanner is ready. Scan a student's QR code."
+                                FontSize="12"
+                                TextColor="#0369A1"
+                                VerticalOptions="Center"
+                                LineBreakMode="WordWrap" />
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- BACK BUTTON -->
+            <!-- ========================================= -->
+
+            <Button
+                Text="← Back to Dashboard"
+                HeightRequest="50"
+                CornerRadius="12"
+                BackgroundColor="#4F46E5"
+                BorderColor="#4F46E5"
+                BorderWidth="1"
+                TextColor="White"
+                FontSize="14"
+                FontAttributes="Bold"
+                Command="{Binding DashboardNav}"
+                HorizontalOptions="Fill" />
+
+
+            <!-- ========================================= -->
+            <!-- RECENT SCANS HEADER -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=18, Tablet=22, Desktop=24}">
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="Recent Scans"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <Label
+                        Text="Latest attendance scanning activity"
+                        FontSize="12"
+                        TextColor="#888888" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- SCAN LOG -->
+            <!-- ========================================= -->
+
+            <CollectionView
+                ItemsSource="{Binding ScanLog}"
+                SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Vertical"
+                        ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            BackgroundColor="White"
+                            Stroke="#E5E7EB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="{OnIdiom Phone=15, Tablet=18, Desktop=20}">
+
+                            <Grid
+                                ColumnDefinitions="Auto,*,Auto"
+                                ColumnSpacing="12">
+
+
+                                <!-- STATUS ICON -->
+
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="42"
+                                    HeightRequest="42"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="{Binding StatusColor}"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="✓"
+                                        FontSize="18"
+                                        TextColor="White"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+
+                                <!-- STUDENT INFORMATION -->
+
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Spacing="3"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="{Binding StudentName}"
+                                        FontSize="14"
+                                        FontAttributes="Bold"
+                                        TextColor="#222222"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1" />
+
+                                    <Label
+                                        Text="{Binding StudentId}"
+                                        FontSize="12"
+                                        TextColor="#888888"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1" />
+
+                                </VerticalStackLayout>
+
+
+                                <!-- STATUS / TIME -->
+
+                                <VerticalStackLayout
+                                    Grid.Column="2"
+                                    Spacing="3"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        Text="{Binding StatusText}"
+                                        FontSize="12"
+                                        FontAttributes="Bold"
+                                        TextColor="{Binding StatusColor}"
+                                        HorizontalTextAlignment="End" />
+
+                                    <Label
+                                        Text="{Binding TimeText}"
+                                        FontSize="11"
+                                        TextColor="#999999"
+                                        HorizontalTextAlignment="End" />
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+            <!-- ========================================= -->
+            <!-- FOOTER -->
+            <!-- ========================================= -->
+
+            <Label
+                Text="@ NSNP Attendance Monitoring System"
+                FontSize="12"
+                TextColor="#C7D7F5"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Fill"
+                Margin="0,5,0,5" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

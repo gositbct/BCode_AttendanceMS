@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.AdminPages.AdminDashboard"
+    Title="Admin Dashboard">
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================================= -->
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="-1,1"
+            EndPoint="1,0">
+
+            <GradientStop
+                Color="Blue"
+                Offset="1.5" />
+
+            <GradientStop
+                Color="Black"
+                Offset="0.5" />
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================= -->
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="{OnIdiom Phone=20, Tablet=35, Desktop=25}"
+            Spacing="{OnIdiom Phone=18, Tablet=22, Desktop=25}"
+            MaximumWidthRequest="650"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+
+            <!-- ========================================= -->
+            <!-- HEADER -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=18, Tablet=22, Desktop=25}"
+                HorizontalOptions="Fill">
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="15"
+                    VerticalOptions="Center">
+
+
+                    <!-- NSNP LOGO -->
+
+                    <Border
+                      WidthRequest="80"
+                      HeightRequest="80"
+                      StrokeThickness="0"
+                      BackgroundColor="#E0F2FE"
+                      StrokeShape="RoundRectangle 30"
+                      HorizontalOptions="Center">
+
+                        <Label
+                           Text="▣"
+                           FontSize="58"
+                           TextColor="#0284C7"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+                    </Border>
+
+
+                    <!-- HEADER TEXT -->
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="3"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="Admin Dashboard"
+                            FontSize="{OnIdiom Phone=21, Tablet=23, Desktop=25}"
+                            FontAttributes="Bold"
+                            TextColor="#222222"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1" />
+
+                   
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- WELCOME -->
+            <!-- ========================================= -->
+
+            <VerticalStackLayout
+                Spacing="3"
+                Padding="5,5,5,0">
+
+                <Label
+                    Text="Welcome, Admin!"
+                    FontSize="{OnIdiom Phone=20, Tablet=22, Desktop=24}"
+                    FontAttributes="Bold"
+                    TextColor="White" />
+
+                <Label
+                    Text="What would you like to do today?"
+                    FontSize="{OnIdiom Phone=13, Tablet=14, Desktop=15}"
+                    TextColor="#D6E4FF" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ========================================= -->
+            <!-- QUICK ACTIONS CARD -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=16, Tablet=20, Desktop=30}">
+
+                <VerticalStackLayout
+                    Spacing="{OnIdiom Phone=12, Tablet=15, Desktop=27}">
+
+
+                    <!-- SECTION TITLE -->
+
+                    <Label
+                        Text="Quick Actions"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        TextColor="#333333" />
+
+
+                    <!-- ================================= -->
+                    <!-- ADD ACCOUNT + SCANNER -->
+                    <!-- ================================= -->
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="12">
+
+
+                        <!-- ADD ACCOUNT -->
+
+                        <Border
+                            Grid.Column="0"
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 14"
+                            Padding="12">
+
+                            <Border.GestureRecognizers>
+
+                                <TapGestureRecognizer
+                                    Command="{Binding AddStudentNav}" />
+
+                            </Border.GestureRecognizers>
+
+                            <VerticalStackLayout
+                                Spacing="8"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Border
+                                    WidthRequest="48"
+                                    HeightRequest="48"
+                                    BackgroundColor="#EDE9FE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 14"
+                                    HorizontalOptions="Center">
+
+                                    <Label
+                                        Text="👤"
+                                        FontSize="22"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+                                <Label
+                                    Text="Add Account"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333"
+                                    HorizontalTextAlignment="Center" />
+
+                                <Label
+                                    Text="Register student"
+                                    FontSize="11"
+                                    TextColor="#888888"
+                                    HorizontalTextAlignment="Center" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+
+                        <!-- SCANNER -->
+
+                        <Border
+                            Grid.Column="1"
+                            BackgroundColor="#F9FAFB"
+                            Stroke="#D1D5DB"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 14"
+                            Padding="12">
+
+                            <Border.GestureRecognizers>
+
+                                <TapGestureRecognizer
+                                    Command="{Binding ScannerNav}" />
+
+                            </Border.GestureRecognizers>
+
+                            <VerticalStackLayout
+                                Spacing="8"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Border
+                                    WidthRequest="48"
+                                    HeightRequest="48"
+                                    BackgroundColor="#E0F2FE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 14"
+                                    HorizontalOptions="Center">
+
+                                    <Label
+                                        Text="▌│█║▌║"
+                                        FontSize="12"
+                                        TextColor="#0284C7"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" />
+
+                                </Border>
+
+                                <Label
+                                    Text="Scanner"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333"
+                                    HorizontalTextAlignment="Center" />
+
+                                <Label
+                                    Text="Scan attendance"
+                                    FontSize="11"
+                                    TextColor="#888888"
+                                    HorizontalTextAlignment="Center" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </Grid>
+
+
+                    <!-- ================================= -->
+                    <!-- MASTER LIST -->
+                    <!-- ================================= -->
+
+                    <Border
+                        BackgroundColor="#F9FAFB"
+                        Stroke="#D1D5DB"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 14"
+                        Padding="14">
+
+                        <Border.GestureRecognizers>
+
+                            <TapGestureRecognizer
+                                Command="{Binding MasterlistNav}" />
+
+                        </Border.GestureRecognizers>
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="14">
+
+                            <Border
+                                Grid.Column="0"
+                                WidthRequest="48"
+                                HeightRequest="48"
+                                BackgroundColor="#DCFCE7"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 14">
+
+                                <Label
+                                    Text="☷"
+                                    FontSize="25"
+                                    TextColor="#16A34A"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="2"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="Master List"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#333333" />
+
+                                <Label
+                                    Text="View and manage student records"
+                                    FontSize="11"
+                                    TextColor="#888888" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- LOG OUT -->
+            <!-- ========================================= -->
+
+            <Button
+                Text="Log Out"
+                HeightRequest="50"
+                CornerRadius="12"
+                BackgroundColor="#DC2626"
+                TextColor="White"
+                FontSize="15"
+                FontAttributes="Bold"
+                Command="{Binding LogOutNav}"
+                HorizontalOptions="Fill" />
+
+
+            <!-- ========================================= -->
+            <!-- FOOTER -->
+            <!-- ========================================= -->
+
+            <Label
+                Text="@ NSNP Attendance Monitoring System"
+                FontSize="12"
+                TextColor="#C7D7F5"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

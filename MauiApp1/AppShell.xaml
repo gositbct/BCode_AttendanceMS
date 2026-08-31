@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    xmlns:pages="clr-namespace:MauiApp1.Views"
+    xmlns:studentpages="clr-namespace:MauiApp1.Views.StudentPages"
+    xmlns:adminpages="clr-namespace:MauiApp1.Views.AdminPages"
+    Title="MauiApp1"
+    FlyoutBehavior="Disabled">
+
+    
+    <ShellContent
+        Title="Login Page"
+        ContentTemplate="{DataTemplate pages:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        Title="Student Dashboard"
+        ContentTemplate="{DataTemplate studentpages:StudentDashboard}"
+        Route="StudentDashboard"/>
+
+    <ShellContent
+        Title="Attendance History"
+        ContentTemplate="{DataTemplate studentpages:AttendanceHistory}"
+        Route="AttendanceHistory"/>
+
+    <ShellContent
+        Title="Set Password"
+        ContentTemplate="{DataTemplate studentpages:SetPassword}"
+        Route="SetPassword"/>
+
+    <ShellContent
+        Title="My Profile"
+        ContentTemplate="{DataTemplate studentpages:MyProfile}"
+        Route="MyProfile"/>
+
+    <ShellContent
+        Title="Admin Dashboard"
+        ContentTemplate="{DataTemplate adminpages:AdminDashboard}"
+        Route="AdminDashboard"/>
+
+    <ShellContent
+        Title="Masterlist"
+        ContentTemplate="{DataTemplate adminpages:Masterlist}"
+        Route="Masterlist"/>
+
+    <ShellContent
+        Title="Student Registration"
+        ContentTemplate="{DataTemplate adminpages:AddStudent}"
+        Route="AddStudent"/>
+
+
+    <ShellContent
+        Title="Student Profile"
+        ContentTemplate="{DataTemplate adminpages:StudentProfile}"
+        Route="studentprofile"/>
+
+    <ShellContent
+        Title="Admin Scanner"
+        ContentTemplate="{DataTemplate adminpages:AdminScanner}"
+        Route="AdminScanner"/>
+
+</Shell>

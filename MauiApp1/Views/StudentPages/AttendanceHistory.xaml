@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.StudentPages.AttendanceHistory"
+    Title="Attendance History">
+
+    <!-- ========================================= -->
+    <!-- GRADIENT BACKGROUND -->
+    <!-- ========================================= -->
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="-1,1"
+            EndPoint="1,0">
+
+            <GradientStop
+                Color="Blue"
+                Offset="1.5" />
+
+            <GradientStop
+                Color="Black"
+                Offset="0.5" />
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================= -->
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="{OnIdiom Phone=16, Tablet=30, Desktop=40}"
+            Spacing="{OnIdiom Phone=16, Tablet=20, Desktop=22}"
+            MaximumWidthRequest="650"
+            HorizontalOptions="Center">
+
+
+            <!-- ========================================= -->
+            <!-- HEADER -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=18, Tablet=22, Desktop=24}"
+                HorizontalOptions="Fill">
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="14"
+                    HorizontalOptions="Fill">
+
+                    <!-- ICON -->
+
+                    <Border
+                        Grid.Column="0"
+                        WidthRequest="54"
+                        HeightRequest="54"
+                        BackgroundColor="#E0F2FE"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 27"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="📅"
+                            FontSize="22"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+
+                    </Border>
+
+
+                    <!-- TITLE -->
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="3"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="My Attendance History"
+                            FontSize="{OnIdiom Phone=18, Tablet=20, Desktop=22}"
+                            FontAttributes="Bold"
+                            TextColor="#222222"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1" />
+
+                        <Label
+                            Text="{Binding AttendanceList.Count, StringFormat='{0} record(s) - most recent first'}"
+                            FontSize="12"
+                            TextColor="#777777"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1" />
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- ATTENDANCE RECORDS -->
+            <!-- ========================================= -->
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 20"
+                Padding="{OnIdiom Phone=12, Tablet=16, Desktop=18}"
+                HorizontalOptions="Fill">
+
+                <CollectionView
+                    ItemsSource="{Binding AttendanceList}"
+                    ItemTemplate="{StaticResource AttendanceRowTemplate}"
+                    SelectionMode="None"
+                    VerticalScrollBarVisibility="Never"
+                    HorizontalOptions="Fill">
+
+                    <!-- EMPTY VIEW -->
+
+                    <CollectionView.EmptyView>
+
+                        <VerticalStackLayout
+                            Padding="20,45"
+                            Spacing="8"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Border
+                                WidthRequest="60"
+                                HeightRequest="60"
+                                BackgroundColor="#E0F2FE"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 30"
+                                HorizontalOptions="Center">
+
+                                <Label
+                                    Text="📋"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" />
+
+                            </Border>
+
+                            <Label
+                                Text="No attendance recorded yet"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#333333"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="Center" />
+
+                            <Label
+                                Text="Your time in/out logs will show up here."
+                                FontSize="12"
+                                TextColor="#888888"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="Center" />
+
+                        </VerticalStackLayout>
+
+                    </CollectionView.EmptyView>
+
+                </CollectionView>
+
+            </Border>
+
+
+            <!-- ========================================= -->
+            <!-- BACK BUTTON -->
+            <!-- ========================================= -->
+
+            <Button
+                Text="← Back to Dashboard"
+                HeightRequest="50"
+                CornerRadius="12"
+                BackgroundColor="#4F46E5"
+                BorderColor="#4F46E5"
+                BorderWidth="1"
+                TextColor="White"
+                FontSize="14"
+                FontAttributes="Bold"
+                Command="{Binding GoBackNav}"
+                HorizontalOptions="Fill" />
+
+
+            <!-- ========================================= -->
+            <!-- FOOTER -->
+            <!-- ========================================= -->
+
+            <Label
+                Text="@ NSNP Attendance Monitoring System"
+                FontSize="11"
+                TextColor="#C7D7F5"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
