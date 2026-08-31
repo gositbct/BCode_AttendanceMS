@@ -124,7 +124,7 @@
                         Spacing="3">
 
                         <Label
-                            Text="QR Code Scanner"
+                            Text="Bar Code Scanner"
                             FontSize="16"
                             FontAttributes="Bold"
                             TextColor="#333333" />
