@@ -39,7 +39,7 @@ namespace MauiApp1.Converters
             => throw new NotImplementedException();
     }
 
-    /*kulay lang to kung successful or hindi yung sca*/
+    /*kulay lang to kung successful or hindi yung scan*/
     public class AttendanceStatusColorConverter : IValueConverter
     {
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)

@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿
+using Microsoft.Extensions.Logging;
 using ZXing.Net.Maui.Controls;
+using MauiApp1.Services;
 
 namespace MauiApp1
 {
@@ -8,6 +10,7 @@ namespace MauiApp1
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .UseBarcodeReader()
@@ -18,10 +21,14 @@ namespace MauiApp1
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+            // Register DatabaseService
+            builder.Services.AddSingleton<DatabaseService>();
 
             return builder.Build();
         }
     }
 }
+

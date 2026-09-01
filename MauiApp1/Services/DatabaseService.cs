@@ -7,6 +7,7 @@ using MauiApp1.Models;
 using static MauiApp1.Models.AttendanceModel;
 using static MauiApp1.Models.StudentModel;
 using Microsoft.Win32.SafeHandles;
+using System.Diagnostics;
 
 namespace MauiApp1.Services
 {
@@ -35,13 +36,22 @@ namespace MauiApp1.Services
             if (_db != null) return;
 
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "attendance.db");
+
+
+            Console.WriteLine($"DATABASE PATH: {dbPath}");
+
             _db = new SQLiteAsyncConnection(dbPath);
+            if (File.Exists(dbPath))
+            {
+                Process.Start("explorer.exe", $"/select,\"{dbPath}\"");
+            }
 
             await _db.CreateTableAsync<Student>();
             await _db.CreateTableAsync<Attendance>();
             await _db.CreateTableAsync<Admin>();
 
             await SeedDefaultAdmin();
+    
         }
 
         //default acc ng admin eto yung admin tas admin123
